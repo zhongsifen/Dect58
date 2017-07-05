@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>appDect58.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>8CBEC70F1F0CBD8C009DC868</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8CBEC7271F0CD5CA009DC868</key>
 		<dict>
 			<key>primary</key>
 			<true/>

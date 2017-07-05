@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5E95D227F6A1CD4552732E1798A2FCBE1EE11D5C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DE04DE2F7DEBE78586ED25CC854B6B7553F76B75" : 9223372036854775807,
+    "5E95D227F6A1CD4552732E1798A2FCBE1EE11D5C" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ACE43DC7-166F-4EC3-B940-DB23095AF967",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DE04DE2F7DEBE78586ED25CC854B6B7553F76B75" : "opencv\/",
+    "5E95D227F6A1CD4552732E1798A2FCBE1EE11D5C" : "Dect58\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Dect58",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Dect58.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zhongsifen\/Dect58.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5E95D227F6A1CD4552732E1798A2FCBE1EE11D5C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/opencv\/opencv.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DE04DE2F7DEBE78586ED25CC854B6B7553F76B75"
+    }
+  ]
+}
