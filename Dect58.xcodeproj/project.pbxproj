@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C7D97C21F1B192800CCF629 /* dbt_face_detection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D97C11F1B192800CCF629 /* dbt_face_detection.cpp */; };
 		8CBEC71C1F0CCA9B009DC868 /* Dect58.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBEC7181F0CCA9B009DC868 /* Dect58.cpp */; };
 		8CBEC71D1F0CCA9B009DC868 /* Dect58.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8CBEC7191F0CCA9B009DC868 /* Dect58.hpp */; };
 		8CBEC71E1F0CCA9B009DC868 /* Detect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBEC71A1F0CCA9B009DC868 /* Detect.cpp */; };
@@ -37,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C7D97C11F1B192800CCF629 /* dbt_face_detection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbt_face_detection.cpp; sourceTree = "<group>"; };
 		8CBEC7101F0CBD8C009DC868 /* libDect58.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDect58.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBEC7181F0CCA9B009DC868 /* Dect58.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dect58.cpp; sourceTree = "<group>"; };
 		8CBEC7191F0CCA9B009DC868 /* Dect58.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dect58.hpp; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				8CBEC7181F0CCA9B009DC868 /* Dect58.cpp */,
 				8CBEC7191F0CCA9B009DC868 /* Dect58.hpp */,
 				8CBEC71A1F0CCA9B009DC868 /* Detect.cpp */,
+				8C7D97C11F1B192800CCF629 /* dbt_face_detection.cpp */,
 				8CBEC71B1F0CCA9B009DC868 /* Detect.hpp */,
 			);
 			path = Dect58;
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CBEC71E1F0CCA9B009DC868 /* Detect.cpp in Sources */,
+				8C7D97C21F1B192800CCF629 /* dbt_face_detection.cpp in Sources */,
 				8CBEC71C1F0CCA9B009DC868 /* Dect58.cpp in Sources */,
 				8CBEC7221F0CCAD4009DC868 /* _opencv2.cpp in Sources */,
 			);

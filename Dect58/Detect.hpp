@@ -10,8 +10,7 @@ protected:
 	int status;
 	cv::CascadeClassifier cascade;
 public:
-	Detect();
-	Detect(std::string filename);
+	Detect(std::string filename=Dect58::RES + "haarcascades/haarcascade_frontalface_alt2.xml");
 	bool detect(cv::Mat& g, cv::Rect& face);
 	bool detect_list(cv::Mat& g, std::vector<cv::Rect>& list);
 	bool detect_roi(cv::Mat& g, cv::Rect& roi, cv::Rect& face);

@@ -76,6 +76,17 @@ Dect58::show_rect(cv::Mat& im, cv::Rect& rect, const cv::Scalar color)
 }
 
 bool
+Dect58::show_point(cv::Mat& im, cv::Point& pt, cv::Scalar color)
+{
+	const int radius=4;
+	const int thickness=1;
+	
+	cv::circle(im, pt, radius, color, thickness);
+
+	return true;
+}
+
+bool
 Dect58::show_points(cv::Mat& im, std::vector<cv::Point>& points, cv::Scalar color)
 {
 	const int radius=2;

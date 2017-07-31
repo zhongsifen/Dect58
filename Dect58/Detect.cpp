@@ -3,18 +3,6 @@
 #include "Detect.hpp"
 using namespace cv;
 
-Detect::Detect()
-{
-	this->status = 0;
-
-	bool ret = false;
-
-	std::string filename(Dect58::RES + "haarcascade_eye_tree_eyeglasses.xml");
-	ret = this->cascade.load(filename);		if (!ret) return;
-	
-	this->status = 1;
-}
-
 Detect::Detect(std::string filename)
 {
 	this->status = 0;
