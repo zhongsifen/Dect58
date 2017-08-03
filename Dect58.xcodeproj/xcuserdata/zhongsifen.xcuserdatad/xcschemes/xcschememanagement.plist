@@ -9,14 +9,44 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Dect58Face.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>appDect58.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>appDect58Vio.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>70</integer>
+		</dict>
+		<key>simpcv.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>8C1CE08B1F2F542A00D81414</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8CAB986D1F32018B008E877F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8CB577041F305A2B00EDAB4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8CBEC70F1F0CBD8C009DC868</key>
 		<dict>
 			<key>primary</key>
