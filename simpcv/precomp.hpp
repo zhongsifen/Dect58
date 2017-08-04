@@ -54,4 +54,20 @@
 //#include "opencv2/core/ocl.hpp"
 //#include "opencv2/core/private.hpp"
 
+static inline void* cvAlignPtr( const void* ptr, int align = 32 )
+{
+	CV_DbgAssert ( (align & (align-1)) == 0 );
+	return (void*)( ((size_t)ptr + align - 1) & ~(size_t)(align-1) );
+}
+
+static inline int cvAlign( int size, int align )
+{
+	CV_DbgAssert( (align & (align-1)) == 0 && size < INT_MAX );
+	return (size + align - 1) & -align;
+}
+
+#define CV_HAAR_FEATURE_MAX  3
+#define CV_HAAR_STAGE_MAX 1000
+#define CV_OCL_RUN(condition, func, ...)
+
 #endif
