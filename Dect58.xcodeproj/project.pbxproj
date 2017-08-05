@@ -14,10 +14,6 @@
 		8C2F32EF1F345C7C00B892E4 /* hog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB98C41F3433C2008E877F /* hog.cpp */; };
 		8C2F32F01F34621600B892E4 /* libsimpcv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB577051F305A2B00EDAB4E /* libsimpcv.dylib */; };
 		8C7D97C21F1B192800CCF629 /* dbt_face_detection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D97C11F1B192800CCF629 /* dbt_face_detection.cpp */; };
-		8CAB98711F32018B008E877F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB98701F32018B008E877F /* main.cpp */; };
-		8CAB98AB1F32A8CE008E877F /* libopencv_core.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB98A81F32A8CE008E877F /* libopencv_core.3.2.0.dylib */; };
-		8CAB98AC1F32A8CE008E877F /* libopencv_highgui.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB98A91F32A8CE008E877F /* libopencv_highgui.3.2.0.dylib */; };
-		8CAB98AD1F32A8CE008E877F /* libopencv_videoio.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB98AA1F32A8CE008E877F /* libopencv_videoio.3.2.0.dylib */; };
 		8CAB98AE1F32A9AC008E877F /* libopencv_core.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB98A81F32A8CE008E877F /* libopencv_core.3.2.0.dylib */; };
 		8CAB98AF1F32A9AC008E877F /* libopencv_highgui.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB98A91F32A8CE008E877F /* libopencv_highgui.3.2.0.dylib */; };
 		8CAB98B01F32A9AC008E877F /* libopencv_videoio.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB98AA1F32A8CE008E877F /* libopencv_videoio.3.2.0.dylib */; };
@@ -38,15 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8CAB986C1F32018B008E877F /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		8CBEC7261F0CD5CA009DC868 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,8 +51,6 @@
 		8C1CE0911F2F64C800D81414 /* Dect58Face.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dect58Face.hpp; sourceTree = "<group>"; };
 		8C2F32EB1F3456F500B892E4 /* libopencv_world.3.3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_world.3.3.0.dylib; path = ../opencv/xcode/lib/Debug/libopencv_world.3.3.0.dylib; sourceTree = "<group>"; };
 		8C7D97C11F1B192800CCF629 /* dbt_face_detection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbt_face_detection.cpp; sourceTree = "<group>"; };
-		8CAB986E1F32018B008E877F /* appDect58Vio */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = appDect58Vio; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CAB98701F32018B008E877F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8CAB98A81F32A8CE008E877F /* libopencv_core.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.3.2.0.dylib; path = ../../../../usr/local/Cellar/opencv3/3.2.0/lib/libopencv_core.3.2.0.dylib; sourceTree = "<group>"; };
 		8CAB98A91F32A8CE008E877F /* libopencv_highgui.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.3.2.0.dylib; path = ../../../../usr/local/Cellar/opencv3/3.2.0/lib/libopencv_highgui.3.2.0.dylib; sourceTree = "<group>"; };
 		8CAB98AA1F32A8CE008E877F /* libopencv_videoio.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videoio.3.2.0.dylib; path = ../../../../usr/local/Cellar/opencv3/3.2.0/lib/libopencv_videoio.3.2.0.dylib; sourceTree = "<group>"; };
@@ -101,16 +86,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CAB986B1F32018B008E877F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8CAB98AB1F32A8CE008E877F /* libopencv_core.3.2.0.dylib in Frameworks */,
-				8CAB98AC1F32A8CE008E877F /* libopencv_highgui.3.2.0.dylib in Frameworks */,
-				8CAB98AD1F32A8CE008E877F /* libopencv_videoio.3.2.0.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8CB577021F305A2B00EDAB4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,14 +118,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8CAB986F1F32018B008E877F /* appDect58Vio */ = {
-			isa = PBXGroup;
-			children = (
-				8CAB98701F32018B008E877F /* main.cpp */,
-			);
-			path = appDect58Vio;
-			sourceTree = "<group>";
-		};
 		8CAB98BB1F3433C2008E877F /* simpcv */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,7 +143,6 @@
 				8CEF6CB61F309E1D001755F6 /* _opencv2.hpp */,
 				8CBEC7171F0CCA9B009DC868 /* Dect58 */,
 				8CBEC7291F0CD5CA009DC868 /* appDect58 */,
-				8CAB986F1F32018B008E877F /* appDect58Vio */,
 				8CBEC7111F0CBD8C009DC868 /* Products */,
 				8CBEC72F1F0CD76D009DC868 /* Frameworks */,
 			);
@@ -189,7 +155,6 @@
 				8CBEC7281F0CD5CA009DC868 /* appDect58 */,
 				8C1CE08C1F2F542A00D81414 /* libDect58Face.dylib */,
 				8CB577051F305A2B00EDAB4E /* libsimpcv.dylib */,
-				8CAB986E1F32018B008E877F /* appDect58Vio */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,23 +246,6 @@
 			productReference = 8C1CE08C1F2F542A00D81414 /* libDect58Face.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
-		8CAB986D1F32018B008E877F /* appDect58Vio */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8CAB98721F32018B008E877F /* Build configuration list for PBXNativeTarget "appDect58Vio" */;
-			buildPhases = (
-				8CAB986A1F32018B008E877F /* Sources */,
-				8CAB986B1F32018B008E877F /* Frameworks */,
-				8CAB986C1F32018B008E877F /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = appDect58Vio;
-			productName = appDect58Vio;
-			productReference = 8CAB986E1F32018B008E877F /* appDect58Vio */;
-			productType = "com.apple.product-type.tool";
-		};
 		8CB577041F305A2B00EDAB4E /* simpcv */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CB577061F305A2B00EDAB4E /* Build configuration list for PBXNativeTarget "simpcv" */;
@@ -362,10 +310,6 @@
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
-					8CAB986D1F32018B008E877F = {
-						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
-					};
 					8CB577041F305A2B00EDAB4E = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
@@ -396,7 +340,6 @@
 				8CBEC7271F0CD5CA009DC868 /* appDect58 */,
 				8C1CE08B1F2F542A00D81414 /* Dect58Face */,
 				8CB577041F305A2B00EDAB4E /* simpcv */,
-				8CAB986D1F32018B008E877F /* appDect58Vio */,
 			);
 		};
 /* End PBXProject section */
@@ -407,14 +350,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1CE0921F2F64C800D81414 /* Dect58Face.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8CAB986A1F32018B008E877F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8CAB98711F32018B008E877F /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,28 +400,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		8CAB98731F32018B008E877F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/opencv3/3.2.0/lib,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		8CAB98741F32018B008E877F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/opencv3/3.2.0/lib,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -658,15 +571,6 @@
 			buildConfigurations = (
 				8C1CE08D1F2F542A00D81414 /* Debug */,
 				8C1CE08E1F2F542A00D81414 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8CAB98721F32018B008E877F /* Build configuration list for PBXNativeTarget "appDect58Vio" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8CAB98731F32018B008E877F /* Debug */,
-				8CAB98741F32018B008E877F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
