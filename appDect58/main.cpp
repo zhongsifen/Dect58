@@ -17,23 +17,41 @@ int main(int argc, const char * argv[]) {
 	char key = '\0';
 	
 	Mat f, g, h, w;
-	Rect face;
-	VideoCapture cap;
-	cap.open(0);		if (!cap.isOpened()) return -1;
-	cap.set(CV_CAP_PROP_FRAME_WIDTH,  640);
-	cap.set(CV_CAP_PROP_FRAME_HEIGHT, 480);
-	ret = cap.read(f);		if (!ret) return false;
-	int m1 = f.cols;
-	int m2 = f.rows;
-	const int n1 = 288;
-	const int n2 = 288;
-	Rect roi(Point((m1 - n1) / 2, (m2 - n2) / 2), Size(n1, n2));
+	std::vector<Mat> hsl;
 	
-	Detect detect;
+	Rect face;
+	
+	std::string folder = Dect58::HAND;
+ 	std::string name = "B-train";
+	std::string index = "001";
+	std::string postfix = ".ppm";
+	std::string filename;
+	
+	std::string rectname = "B-rect";
+	
+	std::ofstream positive(folder + "positive.txt");		if (!positive.is_open()) return -1;
+	
+	Detect detect(Dect58::RES + "haarcascades_hand/palm.xml");
+	int i = 1;
 	do {
-		ret = cap.read(f);		if (!ret) continue;
-		cvtColor(f, g, COLOR_BGR2GRAY);
+		char index_c[4];
+		snprintf(index_c, 4, "%03d", i++);
+		filename = name + index_c + postfix;
+		f = imread(folder + filename);	if (f.data == nullptr) break;
 		w = f.clone();
+		
+		Mat u(f.rows, f.cols, CV_32FC3);
+		cvtColor(f, u, COLOR_BGR2HSV);
+		split(u, hsl);
+		g = hsl[2];
+		
+//		cvtColor(f, g, COLOR_BGR2GRAY);
+		
+//		imshow("Dect58", f);
+//		imshow("0", hsl[0]);
+//		imshow("1", hsl[1]);
+//		imshow("2", hsl[2]);
+//		key = waitKey();
 		
 		ret = detect.detect(g, face);
 		
@@ -41,18 +59,24 @@ int main(int argc, const char * argv[]) {
 			Point pt(face.x + face.width/2, face.y + face.height/2);
 			Dect58::show_point(w, pt, COLOR_0000FF);
 			Dect58::show_rect(w, face, COLOR_0000FF);
-			std::cout << pt << std::endl;
+			imwrite(folder + rectname + index_c + ".png", w);
+			positive << filename;
+			positive << std::endl;
+			imshow("Dect58", w);
+			key = waitKey(5);
 		}
 //		else {
-//			Dect58::show_rect(w, roi, COLOR_FF0000);
+//			std::cout << "no face" << std::endl;
 //		}
-		
-		imshow("Dect58", w);
-		key = waitKey(5);
-		if (key == 'v') {
-			std::cout << face.size() << std::endl;
-		}
-	} while (key != 'q');
+//		
+//		imshow("Dect58", w);
+//		key = waitKey(5);
+//		if (key == 'v') {
+//			std::cout << face.size() << std::endl;
+//		}
+	} while (1);
+	
+	positive.close();
 	
 	std::cout << "Hello, World!\n";
 	return 0;

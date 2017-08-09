@@ -10,6 +10,7 @@
 namespace Dect58 {
 	const static std::string RES("/Users/zhongsifen/Work/Dect58/res/");
 	
+	const static std::string HAND("/Users/zhongsifen/Work/data/Hand/B/");
 
 	const cv::Scalar COLOR_0000FF = cv::Scalar(0x00, 0x00, 0xFF);
 	const cv::Scalar COLOR_00FF00 = cv::Scalar(0x00, 0xFF, 0x00);
