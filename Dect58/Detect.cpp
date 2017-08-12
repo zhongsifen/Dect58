@@ -71,3 +71,28 @@ Detect::detect_roi(cv::Mat& g, cv::Rect& roi, cv::Rect& face)
 	
 	return true;
 }
+
+bool
+Detect::detect(cv::Mat& g, cv::Rect& face, int& level, double& certain) {
+	if (this->status < 1) return false;
+	
+	std::vector<Rect> list;
+	std::vector<int> level_list;
+	std::vector<double> certain_list;
+	this->cascade.detectMultiScale(g, list, level_list, certain_list, 1.1, 3, 0, Size(), Size(), true);
+	int n = (int)list.size();		if (n < 1) return false;
+	face = list[0];
+	level = level_list[0];
+	certain = certain_list[0];
+	for (int i=1; i<n; i++) {
+		if (certain_list[i] > certain) {
+			face = list[i];
+			level = level_list[i];
+			certain = certain_list[i];
+		}
+	}
+	
+	this->status = 2;
+	
+	return true;
+}

@@ -6,8 +6,7 @@
 //
 //
 
-#include "Dect58.hpp"
-#include "Detect.hpp"
+#include "Dect58Hand.hpp"
 #include <iostream>
 using namespace cv;
 using namespace Dect58;
@@ -20,6 +19,8 @@ int main(int argc, const char * argv[]) {
 	std::vector<Mat> hsl;
 	
 	Rect face;
+	int level=0;
+	double certain=0;
 	
 	std::string folder = Dect58::HAND;
  	std::string name = "B-train";
@@ -31,7 +32,7 @@ int main(int argc, const char * argv[]) {
 	
 	std::ofstream positive(folder + "positive.txt");		if (!positive.is_open()) return -1;
 	
-	Detect detect(Dect58::RES + "haarcascades_hand/palm.xml");
+	Dect58Hand dect;
 	int i = 1;
 	do {
 		char index_c[4];
@@ -53,7 +54,7 @@ int main(int argc, const char * argv[]) {
 //		imshow("2", hsl[2]);
 //		key = waitKey();
 		
-		ret = detect.detect(g, face);
+		ret = dect.detect(g, face, level, certain);
 		
 		if (ret) {
 			Point pt(face.x + face.width/2, face.y + face.height/2);
@@ -62,8 +63,10 @@ int main(int argc, const char * argv[]) {
 			imwrite(folder + rectname + index_c + ".png", w);
 			positive << filename;
 			positive << std::endl;
+			std::cout << "level: " << level << "  " << "certain: " << certain << std::endl;
+			
 			imshow("Dect58", w);
-			key = waitKey(5);
+			key = waitKey();
 		}
 //		else {
 //			std::cout << "no face" << std::endl;
