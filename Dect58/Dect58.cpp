@@ -1,134 +1,102 @@
-// Dect58.cpp
+//
+//  Dect58.cpp
+//  Dect58
+//
+//  Created by SIFEN ZHONG on 13/8/2017.
+//  Copyright © 2017 ___ZHONGSIFEN___. All rights reserved.
+//
 
 #include "Dect58.hpp"
-#include <vector>
+using namespace cv;
 
-bool Dect58::read_mat(std::ifstream& s, cv::Mat& a)
+Dect58::Dect58(std::string filename)
 {
-	int r,c,t; s >> r >> c >> t;
-	a = cv::Mat(r,c,t);
-	switch (a.type()) {
-		case CV_64FC1: {
-			cv::MatIterator_<double> i1 = a.begin<double>(),i2 = a.end<double>();
-			while(i1 != i2)s >> *i1++;
-		} break;
-		case CV_32FC1: {
-			cv::MatIterator_<float> i1 = a.begin<float>(),i2 = a.end<float>();
-			while(i1 != i2)s >> *i1++;
-		} break;
-		case CV_32SC1:
-		{
-			cv::MatIterator_<int> i1 = a.begin<int>(),i2 = a.end<int>();
-			while(i1 != i2)s >> *i1++;
-		} break;
-		case CV_8UC1:
-		{
-			cv::MatIterator_<uchar> i1 = a.begin<uchar>(),i2 = a.end<uchar>();
-			while(i1 != i2)s >> *i1++;
-		} break;
-		default: {
-			return false;
+	this->status = 0;
+	
+	bool ret = this->cascade.load(filename);		if (!ret) return;
+	
+	this->status = 1;
+}
+
+bool
+Dect58::detect(cv::Mat& g, cv::Rect& box)
+{
+	if (this->status < 1) return false;
+
+	std::vector<Rect> list;
+	this->cascade.detectMultiScale(g, list);
+	int n = (int)list.size();		if (n < 1) return false;
+	box = list[0];
+	for (int i=1; i<n; i++) {
+		if (list[i].area() > box.area()) {
+			box = list[i];
 		}
 	}
 	
+	this->status = 2;
+
 	return true;
 }
 
-bool Dect58::write_mat(std::ofstream& s, cv::Mat& a)
+bool
+Dect58::detect_list(cv::Mat& g, std::vector<cv::Rect>& list)
 {
-	s << a.rows << " " << a.cols << " " << a.type() << " ";
-	switch(a.type()){
-  case CV_64FC1:
-		{
-			s.precision(10); s << std::scientific;
-			cv::MatIterator_<double> i1 = a.begin<double>(),i2 = a.end<double>();
-			while(i1 != i2)s << *i1++ << " ";
-		}break;
-  case CV_32FC1:
-		{
-			cv::MatIterator_<float> i1 = a.begin<float>(),i2 = a.end<float>();
-			while(i1 != i2)s << *i1++ << " ";
-		}break;
-  case CV_32SC1:
-		{
-			cv::MatIterator_<int> i1 = a.begin<int>(),i2 = a.end<int>();
-			while(i1 != i2)s << *i1++ << " ";
-		}break;
-  case CV_8UC1:
-		{
-			cv::MatIterator_<uchar> i1 = a.begin<uchar>(),i2 = a.end<uchar>();
-			while(i1 != i2)s << *i1++ << " ";
-		}break;
-		default: {
-			return false;
+	if (this->status < 1) return false;
+	
+	this->cascade.detectMultiScale(g, list);
+	int n = (int)list.size();		if (n < 1) return false;
+	
+	this->status = 2;
+	
+	return true;
+}
+
+bool
+Dect58::detect_roi(cv::Mat& g, cv::Rect& roi, cv::Rect& box)
+{
+	if (this->status < 1) return false;
+
+	cv::Mat h = g(roi);
+	
+	std::vector<Rect> list;
+	this->cascade.detectMultiScale(h, list);
+	int n = (int)list.size();		if (n < 1) return false;
+	box = list[0];
+	for (int i=1; i<n; i++) {
+		if (list[i].area() > box.area()) {
+			box = list[i];
+		}
+	}
+
+	box.x += roi.x;
+	box.y += roi.y;
+	
+	this->status = 2;
+	
+	return true;
+}
+
+bool
+Dect58::detect(cv::Mat& g, cv::Rect& box, int& level, double& weight) {
+	if (this->status < 1) return false;
+	
+	std::vector<Rect> list;
+	std::vector<int> level_list;
+	std::vector<double> weight_list;
+	this->cascade.detectMultiScale(g, list, level_list, weight_list, 1.1, 3, 0, Size(), Size(), true);
+	int n = (int)list.size();		if (n < 1) return false;
+	box = list[0];
+	level = level_list[0];
+	weight = weight_list[0];
+	for (int i=1; i<n; i++) {
+		if (weight_list[i] > weight) {
+			box = list[i];
+			level = level_list[i];
+			weight = weight_list[i];
 		}
 	}
 	
-	return true;
-}
-
-bool
-Dect58::show_rect(cv::Mat& im, cv::Rect& rect, const cv::Scalar color)
-{
-	rectangle(im, rect, color);
-	
-	return true;
-}
-
-bool
-Dect58::show_point(cv::Mat& im, cv::Point& pt, cv::Scalar color)
-{
-	const int radius=4;
-	const int thickness=1;
-	
-	cv::circle(im, pt, radius, color, thickness);
-
-	return true;
-}
-
-bool
-Dect58::show_points(cv::Mat& im, std::vector<cv::Point>& points, cv::Scalar color)
-{
-	const int radius=2;
-	const int thickness=1;
-	
-	int size = (int)points.size();
-	for (int i = 0; i < size; i++) {
-		cv::circle(im, points[i], radius, color, thickness);
-	}
-	
-	return true;
-}
-
-bool
-Dect58::show_points(cv::Mat& im, cv::Mat& points, cv::Scalar color)
-{
-	const int radius=2;
-	const int thickness=1;
-	
-	int n = (int)points.total() / 2;
-	double* s = (double*)points.data;
-	for (int i = 0; i < n; i++) {
-		cv::circle(im, cv::Point(s[i], s[n+i]), radius, color, thickness);
-	}
-	
-	return true;
-}
-
-bool
-Dect58::show_shape(cv::Mat& im, cv::Mat& shape, int health)
-{
-	const cv::Scalar color= health >= 10 ? cv::Scalar(0x00, 0x00,0xFF) : cv::Scalar(0xFF, 0x00, 0x00);
-	const int radius=2;
-	const int thickness=1;
-	
-	int n = (int)shape.total() / 2;
-	std::vector<cv::Point> points(n);
-	double* s = (double*)shape.data;
-	for (int i = 0; i < n; i++) {
-		points[i] = cv::Point(s[i], s[n+i]);
-		cv::circle(im, cv::Point(s[i], s[n+i]), radius, color, thickness);
-	}
+	this->status = 2;
 	
 	return true;
 }

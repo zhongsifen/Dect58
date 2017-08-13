@@ -7,10 +7,9 @@
 //
 
 #include "Dect58.hpp"
-#include "Detect.hpp"
 #include <iostream>
 using namespace cv;
-using namespace Dect58;
+using namespace Dect58UI;
 
 int main_video(int argc, const char * argv[]) {
 	bool ret = false;
@@ -30,7 +29,7 @@ int main_video(int argc, const char * argv[]) {
 		const int n2 = 288;
 		Rect roi(Point((m1 - n1) / 2, (m2 - n2) / 2), Size(n1, n2));
 	
-	Detect detect(Dect58::RES + "haarcascades_hand/palm.xml");
+	Dect58::Dect58 detect(RES + "haarcascades_hand/palm.xml");
 	do {
 		key = 'q';
 
@@ -43,8 +42,8 @@ int main_video(int argc, const char * argv[]) {
 		
 		if (ret) {
 			Point pt(face.x + face.width/2, face.y + face.height/2);
-			Dect58::show_point(w, pt, COLOR_0000FF);
-			Dect58::show_rect(w, face, COLOR_0000FF);
+			show_point(w, pt, COLOR_0000FF);
+			show_rect(w, face, COLOR_0000FF);
 			std::cout << pt << std::endl;
 		}
 		else {

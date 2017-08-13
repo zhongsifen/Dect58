@@ -1,30 +1,29 @@
-// Dect58.hpp
+//
+//  Dect58.hpp
+//  Dect58
+//
+//  Created by SIFEN ZHONG on 13/8/2017.
+//  Copyright © 2017 ___ZHONGSIFEN___. All rights reserved.
+//
 
-#ifndef _Dect58_h_
-#define _Dect58_h_
+#ifndef Dect58_hpp
+#define Dect58_hpp
 
-#include "_opencv2.hpp"	
-#include <iostream>
-#include <fstream>
+#include "Dect58UI.hpp"
+#include "_opencv2.hpp"
 
-namespace Dect58 {
-	const static std::string RES("/Users/zhongsifen/Work/Dect58/res/");
+class Dect58 {
+	int status;
+	cv::CascadeClassifier cascade;
+public:
+	Dect58() { this->status = 0; }
+	Dect58(std::string filename);
 	
-	const static std::string HAND("/Users/zhongsifen/Work/data/Hand/B/");
-
-	const cv::Scalar COLOR_0000FF = cv::Scalar(0x00, 0x00, 0xFF);
-	const cv::Scalar COLOR_00FF00 = cv::Scalar(0x00, 0xFF, 0x00);
-	const cv::Scalar COLOR_FF0000 = cv::Scalar(0xFF, 0x00, 0x00);
-
-
-	bool read_mat(std::ifstream& s, cv::Mat& a);
-	bool write_mat(std::ofstream& s, cv::Mat& a);
-	bool show_rect(cv::Mat& im, cv::Rect& rect, cv::Scalar color);
-	bool show_point(cv::Mat& im, cv::Point& pt, cv::Scalar color);
-	bool show_points(cv::Mat& im, std::vector<cv::Point>& points, cv::Scalar color);
-	bool show_points(cv::Mat& im, cv::Mat& points, cv::Scalar color);
-	bool show_shape(cv::Mat& im, cv::Mat& shape, int health=10);
+	bool detect(cv::Mat& g, cv::Rect& box);
+	bool detect_list(cv::Mat& g, std::vector<cv::Rect>& list);
+	bool detect_roi(cv::Mat& g, cv::Rect& roi, cv::Rect& box);
 	
+	bool detect(cv::Mat& g, cv::Rect& box, int& level, double& weight);	
 };
 
-#endif
+#endif /* Dect58_hpp */

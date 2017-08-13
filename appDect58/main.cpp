@@ -6,10 +6,10 @@
 //
 //
 
-#include "Dect58Hand.hpp"
+#include "Dect58.hpp"
 #include <iostream>
 using namespace cv;
-using namespace Dect58;
+using namespace Dect58UI;
 
 int main(int argc, const char * argv[]) {
 	bool ret = false;
@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
 	int level=0;
 	double certain=0;
 	
-	std::string folder = Dect58::HAND;
+	std::string folder = Dect58UI::HAND;
  	std::string name = "B-train";
 	std::string index = "001";
 	std::string postfix = ".ppm";
@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
 	
 	std::ofstream positive(folder + "positive.txt");		if (!positive.is_open()) return -1;
 	
-	Dect58Hand dect;
+	Dect58 dect(RES + "haarcascades_hand/palm.xml");
 	int i = 1;
 	do {
 		char index_c[4];
@@ -58,8 +58,8 @@ int main(int argc, const char * argv[]) {
 		
 		if (ret) {
 			Point pt(face.x + face.width/2, face.y + face.height/2);
-			Dect58::show_point(w, pt, COLOR_0000FF);
-			Dect58::show_rect(w, face, COLOR_0000FF);
+			Dect58UI::show_point(w, pt, COLOR_0000FF);
+			Dect58UI::show_rect(w, face, COLOR_0000FF);
 			imwrite(folder + rectname + index_c + ".png", w);
 			positive << filename;
 			positive << std::endl;
