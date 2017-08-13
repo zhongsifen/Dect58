@@ -1,9 +1,9 @@
 //
-//  main_video.cpp
-//  Dect58
+//  main.cpp
+//  appDect58
 //
-//  Created by SIFEN ZHONG on 5/8/2017.
-//  Copyright © 2017 ___ZHONGSIFEN___. All rights reserved.
+//  Created by SIFEN ZHONG on 13/9/15.
+//
 //
 
 #include "Dect58.hpp"
@@ -11,12 +11,16 @@
 using namespace cv;
 using namespace Dect58UI;
 
-int main_video(int argc, const char * argv[]) {
+int main(int argc, const char * argv[]) {
 	bool ret = false;
 	char key = '\0';
 	
 	Mat f, g, h, w;
-	Rect face;
+	std::vector<Mat> hsl;
+	
+	Rect box;
+	int level=0;
+	double weight=0;
 	
 		VideoCapture cap;
 		cap.open(0);		if (!cap.isOpened()) return -1;
@@ -29,35 +33,33 @@ int main_video(int argc, const char * argv[]) {
 		const int n2 = 288;
 		Rect roi(Point((m1 - n1) / 2, (m2 - n2) / 2), Size(n1, n2));
 	
-	Dect58::Dect58 detect(RES + "haarcascades_hand/palm.xml");
+	Dect58 dect(RES + "haarcascades/haarcascade_frontalface_alt2.xml");
 	do {
 		key = 'q';
 
 		ret = cap.read(f);		if (!ret) continue;
 		w = f.clone();
 		
-		cvtColor(f, g, COLOR_BGR2GRAY);
+		Mat u(f.rows, f.cols, CV_32FC3);
+		cvtColor(f, u, COLOR_BGR2HSV);
+		split(u, hsl);
+		g = hsl[2];
 		
-		ret = detect.detect(g, face);
+		ret = dect.detect(g, box, level, weight);
 		
 		if (ret) {
-			Point pt(face.x + face.width/2, face.y + face.height/2);
-			show_point(w, pt, COLOR_0000FF);
-			show_rect(w, face, COLOR_0000FF);
-			std::cout << pt << std::endl;
-		}
-		else {
-			std::cout << "no face" << std::endl;
+			Point pt(box.x + box.width/2, box.y + box.height/2);
+			Dect58UI::show_point(w, pt, COLOR_0000FF);
+			Dect58UI::show_rect(w, box, COLOR_0000FF);
+			std::cout << "level: " << level << "  " << "weight: " << weight << std::endl;
+			
+			imshow("Dect58", w);
 		}
 		
 		imshow("Dect58", w);
-		key = waitKey(5);
-		if (key == 'v') {
-			std::cout << face.size() << std::endl;
-		}
-	} while (key != 'q');
+		key = waitKey(5);		if (key == 'q') break;
+	} while (1);
 	
 	std::cout << "Hello, World!\n";
 	return 0;
 }
-

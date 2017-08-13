@@ -11,16 +11,16 @@
 using namespace cv;
 using namespace Dect58UI;
 
-int main(int argc, const char * argv[]) {
+int main_file(int argc, const char * argv[]) {
 	bool ret = false;
 	char key = '\0';
 	
 	Mat f, g, h, w;
 	std::vector<Mat> hsl;
 	
-	Rect face;
+	Rect box;
 	int level=0;
-	double certain=0;
+	double weight=0;
 	
 	std::string folder = Dect58UI::HAND;
  	std::string name = "B-train";
@@ -46,37 +46,20 @@ int main(int argc, const char * argv[]) {
 		split(u, hsl);
 		g = hsl[2];
 		
-//		cvtColor(f, g, COLOR_BGR2GRAY);
-		
-//		imshow("Dect58", f);
-//		imshow("0", hsl[0]);
-//		imshow("1", hsl[1]);
-//		imshow("2", hsl[2]);
-//		key = waitKey();
-		
-		ret = dect.detect(g, face, level, certain);
+		ret = dect.detect(g, box, level, weight);
 		
 		if (ret) {
-			Point pt(face.x + face.width/2, face.y + face.height/2);
+			Point pt(box.x + box.width/2, box.y + box.height/2);
 			Dect58UI::show_point(w, pt, COLOR_0000FF);
-			Dect58UI::show_rect(w, face, COLOR_0000FF);
+			Dect58UI::show_rect(w, box, COLOR_0000FF);
 			imwrite(folder + rectname + index_c + ".png", w);
 			positive << filename;
 			positive << std::endl;
-			std::cout << "level: " << level << "  " << "certain: " << certain << std::endl;
+			std::cout << "level: " << level << "  " << "weight: " << weight << std::endl;
 			
 			imshow("Dect58", w);
-			key = waitKey();
 		}
-//		else {
-//			std::cout << "no face" << std::endl;
-//		}
-//		
-//		imshow("Dect58", w);
-//		key = waitKey(5);
-//		if (key == 'v') {
-//			std::cout << face.size() << std::endl;
-//		}
+		key = waitKey();		if (key == 'q') break;
 	} while (1);
 	
 	positive.close();
