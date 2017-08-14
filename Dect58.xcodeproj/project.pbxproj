@@ -31,7 +31,6 @@
 		8CBEC72B1F0CD5CA009DC868 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBEC72A1F0CD5CA009DC868 /* main.cpp */; };
 		8CBEC7321F0CD781009DC868 /* libDect58.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CBEC7101F0CBD8C009DC868 /* libDect58.a */; };
 		8CDF0FA71F35CECD00F999BD /* libopencv_imgcodecs.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDF0FA61F35CECD00F999BD /* libopencv_imgcodecs.3.2.0.dylib */; };
-		8CDF0FA91F35E7A000F999BD /* main_video.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF0FA81F35E7A000F999BD /* main_video.cpp */; };
 		8CEF6CB71F309E1D001755F6 /* _opencv2.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8CEF6CB61F309E1D001755F6 /* _opencv2.hpp */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +77,6 @@
 		8CBEC7281F0CD5CA009DC868 /* appDect58 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = appDect58; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBEC72A1F0CD5CA009DC868 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8CDF0FA61F35CECD00F999BD /* libopencv_imgcodecs.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgcodecs.3.2.0.dylib; path = ../../../../usr/local/Cellar/opencv3/3.2.0/lib/libopencv_imgcodecs.3.2.0.dylib; sourceTree = "<group>"; };
-		8CDF0FA81F35E7A000F999BD /* main_video.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_video.cpp; sourceTree = "<group>"; };
 		8CEF6CB61F309E1D001755F6 /* _opencv2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = _opencv2.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				8CBEC72A1F0CD5CA009DC868 /* main.cpp */,
-				8CDF0FA81F35E7A000F999BD /* main_video.cpp */,
 			);
 			path = appDect58;
 			sourceTree = "<group>";
@@ -384,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CDF0FA91F35E7A000F999BD /* main_video.cpp in Sources */,
 				8CBEC72B1F0CD5CA009DC868 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
