@@ -9,13 +9,11 @@
 #ifndef Dect58Face_hpp
 #define Dect58Face_hpp
 
-#include "Detect.hpp"
+#include "Dect58.hpp"
 
 class Dect58Face {
-	Detect* detect;
 	
 	Dect58Face() {
-		this->detect = new Detect();
 	}
 };
 
