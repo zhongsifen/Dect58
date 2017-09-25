@@ -11,7 +11,7 @@
 using namespace cv;
 using namespace Dect58UI;
 
-std::string _imgfolder("/Users/zhongsifen/Work/Cert58/img/cert/");
+std::string _imgfolder("/Users/zhongsifen/Work/Cert58/img/wcr/");
 
 int main(int argc, const char * argv[]) {
 	bool ret = false;
@@ -23,19 +23,20 @@ int main(int argc, const char * argv[]) {
 	Rect box;
 	Point eyeL;
 	Point eyeR;
-	int level=0;
-	double weight=0;
 
 	do {
-		f = imread(_imgfolder + "2.jpg");
-		resize(f, w, f.size()*2);
-		
+		f = imread(_imgfolder + "2017-09-04-10-50-04-125.jpeg");
+//		resize(f, w, f.size()*2);
+		w = f.clone();
+		imshow("Dect58", w);
 		cvtColor(w, g, CV_BGR2GRAY);
 		
 		Dect58Face dect;
 		
 		ret = dect.detect(g, box);
 		dect.detectEye(g, box, eyeL, eyeR);
+		
+		Cert58::align(w, eyeL, eyeR, h);
 		
 		if (ret) {
 			Point pt(box.x + box.width/2, box.y + box.height/2);
@@ -44,9 +45,11 @@ int main(int argc, const char * argv[]) {
 			Dect58UI::show_point(w, eyeL, Scalar(0xF0, 0xF0, 0xF0));
 			Dect58UI::show_point(w, eyeR, Scalar(0xF0, 0xF0, 0xF0));
 			imshow("Dect58", w);
+			imshow("align", h);
+			imwrite(_imgfolder + "8.png", h);
 		}
 		key = waitKey();		if (key != 'r') break;
-	} while (1);
+	} while (false);
 
 	std::cout << "Hello, World!\n";
 	return 0;
