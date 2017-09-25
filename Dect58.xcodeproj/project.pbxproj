@@ -21,6 +21,7 @@
 		8C8DFF951F78AF2100C00003 /* libopencv_objdetect.3.3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8DFF891F78A36000C00003 /* libopencv_objdetect.3.3.0.dylib */; };
 		8C8DFF961F78AF8900C00003 /* libopencv_core.3.3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8DFF871F78A36000C00003 /* libopencv_core.3.3.0.dylib */; };
 		8C8DFF971F78AF8900C00003 /* libopencv_imgproc.3.3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C8DFF881F78A36000C00003 /* libopencv_imgproc.3.3.0.dylib */; };
+		8C8DFF991F78C39A00C00003 /* mainImg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C8DFF981F78C39A00C00003 /* mainImg.cpp */; };
 		8CB867CB1F3F7B5A00D13B91 /* Dect58.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CB867C91F3F7B5A00D13B91 /* Dect58.cpp */; };
 		8CB867CC1F3F7B5A00D13B91 /* Dect58.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8CB867CA1F3F7B5A00D13B91 /* Dect58.hpp */; };
 		8CBEC71C1F0CCA9B009DC868 /* Dect58UI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CBEC7181F0CCA9B009DC868 /* Dect58UI.cpp */; };
@@ -54,6 +55,7 @@
 		8C8DFF8A1F78A36000C00003 /* libopencv_highgui.3.3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.3.3.0.dylib; path = ../../lib/libopencv_highgui.3.3.0.dylib; sourceTree = "<group>"; };
 		8C8DFF8F1F78A41000C00003 /* libopencv_imgcodecs.3.3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgcodecs.3.3.0.dylib; path = ../../Github/opencv_face/build/lib/Debug/libopencv_imgcodecs.3.3.0.dylib; sourceTree = "<group>"; };
 		8C8DFF901F78A41000C00003 /* libopencv_videoio.3.3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videoio.3.3.0.dylib; path = ../../Github/opencv_face/build/lib/Debug/libopencv_videoio.3.3.0.dylib; sourceTree = "<group>"; };
+		8C8DFF981F78C39A00C00003 /* mainImg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mainImg.cpp; sourceTree = "<group>"; };
 		8CAB98A81F32A8CE008E877F /* libopencv_core.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.3.2.0.dylib; path = ../../../../usr/local/Cellar/opencv3/3.2.0/lib/libopencv_core.3.2.0.dylib; sourceTree = "<group>"; };
 		8CAB98A91F32A8CE008E877F /* libopencv_highgui.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.3.2.0.dylib; path = ../../../../usr/local/Cellar/opencv3/3.2.0/lib/libopencv_highgui.3.2.0.dylib; sourceTree = "<group>"; };
 		8CAB98AA1F32A8CE008E877F /* libopencv_videoio.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videoio.3.2.0.dylib; path = ../../../../usr/local/Cellar/opencv3/3.2.0/lib/libopencv_videoio.3.2.0.dylib; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				8CBEC72A1F0CD5CA009DC868 /* main.cpp */,
+				8C8DFF981F78C39A00C00003 /* mainImg.cpp */,
 				8C4D74F71F789DA600786657 /* mainPalm.cpp */,
 			);
 			path = appDect58;
@@ -311,6 +314,7 @@
 			files = (
 				8C4D74F81F789DA600786657 /* mainPalm.cpp in Sources */,
 				8CBEC72B1F0CD5CA009DC868 /* main.cpp in Sources */,
+				8C8DFF991F78C39A00C00003 /* mainImg.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

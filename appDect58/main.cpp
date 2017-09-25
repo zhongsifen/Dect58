@@ -14,7 +14,7 @@
 using namespace cv;
 using namespace Dect58UI;
 
-int main(int argc, const char * argv[]) {
+int main_(int argc, const char * argv[]) {
 	bool ret = false;
 	char key = '\0';
 	
