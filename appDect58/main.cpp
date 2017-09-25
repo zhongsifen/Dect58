@@ -22,6 +22,8 @@ int main(int argc, const char * argv[]) {
 	std::vector<Mat> hsl;
 	
 	Rect box;
+	Point eyeL;
+	Point eyeR;
 	int level=0;
 	double weight=0;
 #if FILEINPUT
@@ -54,12 +56,14 @@ int main(int argc, const char * argv[]) {
 		Dect58Face dect;
 		
 		ret = dect.detect(g, box);
+		dect.detectEye(g, box, eyeL, eyeR);
 		
 		if (ret) {
 			Point pt(box.x + box.width/2, box.y + box.height/2);
 			Dect58UI::show_point(w, pt, COLOR_0000FF);
 			Dect58UI::show_rect(w, box, COLOR_0000FF);
-			std::cout << "level: " << level << "  " << "weight: " << weight << std::endl;
+			Dect58UI::show_point(w, eyeL, Scalar(0xF0, 0x00, 0xF0));
+			Dect58UI::show_point(w, eyeR, Scalar(0x00, 0xF0, 0xF0));
 			imshow("Dect58", w);
 #if FILEINPUT
 #endif
