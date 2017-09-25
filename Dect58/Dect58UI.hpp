@@ -8,7 +8,7 @@
 #include <fstream>
 
 namespace Dect58UI {
-
+	const static std::string CASCADES("/Users/zhongsifen/Work/Dect58/cascades/");
 	const static std::string RES("/Users/zhongsifen/Work/Dect58/res/");
 	const static std::string HAND("/Users/zhongsifen/Work/data/Hand/B/");
 	

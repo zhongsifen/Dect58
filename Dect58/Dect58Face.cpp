@@ -7,3 +7,10 @@
 //
 
 #include "Dect58Face.hpp"
+
+bool
+Dect58Face::detect(cv::Mat &g, cv::Rect &box) {
+	bool ret = dectFace.detect(g, box);		if (!ret) return false;
+	
+	return true;
+}

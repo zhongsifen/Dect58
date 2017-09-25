@@ -9,7 +9,6 @@
 #ifndef Dect58_hpp
 #define Dect58_hpp
 
-#include "Dect58UI.hpp"
 #include "_opencv2.hpp"
 
 class Dect58 {
@@ -19,6 +18,7 @@ public:
 	Dect58() { this->status = 0; }
 	Dect58(std::string filename);
 	
+	bool load(std::string filename);
 	bool detect(cv::Mat& g, cv::Rect& box);
 	bool detect_list(cv::Mat& g, std::vector<cv::Rect>& list);
 	bool detect_roi(cv::Mat& g, cv::Rect& roi, cv::Rect& box);

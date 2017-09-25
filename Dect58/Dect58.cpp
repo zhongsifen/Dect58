@@ -19,6 +19,16 @@ Dect58::Dect58(std::string filename)
 }
 
 bool
+Dect58::load(std::string filename) {
+	if (this->status < 0) return false;
+	bool ret = this->cascade.load(filename);		if (!ret) return false;
+	
+	this->status = 1;
+	
+	return true;
+}
+
+bool
 Dect58::detect(cv::Mat& g, cv::Rect& box)
 {
 	if (this->status < 1) return false;
